@@ -20,6 +20,7 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    #setup
     path("admin/", admin.site.urls),
     path(
         "swagger(<format>\.json|\.yaml)",
@@ -33,4 +34,7 @@ urlpatterns = [
     ),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     path('__debug__/', include('debug_toolbar.urls')),
+    
+    #apps
+    path('users/', include('users.urls')),
 ]
